@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "pic": "https://pix10.agoda.net/hotelImages/554/5547527/5547527_18080111100067219956.png?ca=13&ce=1&s=1024x768",
+        "name": "Laxury Single Bed",
+        "review": "Et sit voluptate elit esse proident dolor occaecat reprehenderit consequat elit do sunt. Nostrud dolor cupidatat proident occaecat duis elit fugiat labore laborum ut laborum. Sit pariatur velit dolore id. Quis non adipisicing minim nisi esse proident elit. Dolore ad excepteur elit labore non. Incididunt amet proident dolor amet duis fugiat est ex. In voluptate magna officia voluptate ullamco sunt qui consectetur et irure veniam reprehenderit eu enim.\r\n",
+        "ratings": "5 Star"
+    },
+    {
+        "id": 2,
+        "pic": "https://hotelnicebd.com/wp-content/uploads/2021/09/AC-suite-semi-double.jpeg",
+        "name": "Laxury Semi-Double Bed",
+        "review": "Tempor ea elit excepteur sint irure aliqua. Veniam et magna duis labore minim quis. Velit reprehenderit et ipsum consequat nisi velit sunt deserunt Lorem officia culpa. Nisi non do deserunt veniam dolore et occaecat commodo occaecat eiusmod. Magna dolor in adipisicing voluptate officia elit ex aliquip et commodo anim.\r\n",
+        "ratings": "5 Star"
+    },
+    {
+        "id": 3,
+        "pic": "https://image.shutterstock.com/image-photo/luxury-hotel-room-caribbean-resort-260nw-377296951.jpg",
+        "name": "Laxury Bouble Bed",
+        "review": "Ipsum sunt laboris occaecat dolore ad minim ullamco esse culpa tempor cupidatat proident. Fugiat labore dolor velit tempor minim est. Ut anim nulla amet voluptate irure proident labore incididunt. Ut proident duis elit consectetur.\r\n",
+        "ratings": "4 Star"
+    }
+]

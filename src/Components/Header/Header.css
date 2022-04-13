@@ -1,0 +1,12 @@
+.navlink{
+    text-decoration: none;
+    color: aliceblue;
+    margin-right: 15px;
+    font-size: 24px;
+
+}
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
