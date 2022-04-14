@@ -1,5 +1,5 @@
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "./SignUp.css";
 import auth from '../../../firebase.init';
@@ -10,6 +10,8 @@ import SocialLogIn from '../SocialLogIn/SocialLogIn';
 
 const SignUp = () => {
     const navigate = useNavigate();
+
+    const [agree, setAgree] = useState(false);
 
     const [
         createUserWithEmailAndPassword,
@@ -26,7 +28,9 @@ const SignUp = () => {
         const name = (e.target.name.value);
         const email = (e.target.email.value);
         const password = (e.target.password.value);
-        createUserWithEmailAndPassword(email, password);
+        if (agree) {
+            createUserWithEmailAndPassword(email, password);
+        }
     }
     return (
         <div className='container w-50 mx-auto sign-up-container'>
@@ -35,7 +39,9 @@ const SignUp = () => {
                 <input type="text" name="name" placeholder='Enter Your Name' />
                 <input type="email" name="email" placeholder='Enter Email' id="" required />
                 <input type="password" name="password" placeholder='Enter Password' id="" required />
-                <Button className='btn btn-primary w-50 d-block mx-auto fs-5 mb-2'>Sign Up</Button>
+                <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="terms" />
+                <label className={`ps-2 ${agree ? 'text-success' : 'text-danger'}`} htmlFor="terms">Agree with sunset Terms and Conditions  </label>
+                <Button disabled={!agree} className='btn btn-primary w-50 d-block mx-auto fs-5 mb-2'>Sign Up</Button>
             </form>
             <p>Already have an account? <Link className='form-link' to='/login'>Log in</Link></p>
             <SocialLogIn></SocialLogIn>

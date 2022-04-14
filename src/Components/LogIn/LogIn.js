@@ -4,6 +4,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import "./LogIn.css"
 import SocialLogIn from './SocialLogIn/SocialLogIn';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Button } from 'react-bootstrap';
 
 const LogIn = () => {
 
@@ -41,8 +44,14 @@ const LogIn = () => {
 
     const resetPassword = async () => {
         const email = eamilRef.current.value;
-        await sendPasswordResetEmail(email);
-        alert('Sent email');
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else {
+            toast("Please Enter Your email");
+        }
+
     }
     return (
         <div className="form-container">
@@ -62,7 +71,8 @@ const LogIn = () => {
                     <input className='form-submit' type="submit" value="Log in" />
                 </form>
                 <p>New in SunSet? <Link className='form-link' to='/signup'>Create An Account</Link></p>
-                <p>forget Password? <Link className='form-link' to='/signup' onClick={resetPassword}>Reset Your Password</Link></p>
+                <p>forget Password? <Button variant="link" className='form-link' onClick={resetPassword}>Reset Your Password</Button></p>
+                <ToastContainer />
 
                 <SocialLogIn></SocialLogIn>
             </div>

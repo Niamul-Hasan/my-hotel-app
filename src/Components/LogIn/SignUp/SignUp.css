@@ -6,7 +6,7 @@
 }
 
 
-.container input{
+.container input:not([type=checkbox]){
     display: block;
     margin-bottom: 15px;
     width: 100%;
