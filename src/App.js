@@ -4,6 +4,7 @@ import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import RoomDetails from './Components/Home/RoomDetails/RoomDetails';
 import LogIn from './Components/LogIn/LogIn';
+import Register from './Components/LogIn/Register/Register';
 import RequireAuth from './Components/LogIn/RequireAuth/RequireAuth';
 import SignUp from './Components/LogIn/SignUp/SignUp';
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/room/:roomId" element={<RoomDetails />}></Route>
         <Route path="/login" element={<LogIn />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
+        <Route path="/register" element={<Register />}></Route>
 
       </Routes>
     </div>

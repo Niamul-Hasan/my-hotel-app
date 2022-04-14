@@ -7,6 +7,7 @@ import SocialLogIn from './SocialLogIn/SocialLogIn';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Button } from 'react-bootstrap';
+import Loading from './Loading/Loading';
 
 const LogIn = () => {
 
@@ -25,6 +26,7 @@ const LogIn = () => {
     const from = location.state?.from?.pathname || "/";
 
     if (user) {
+        console.log(user);
         navigate(from, { replace: true });
     }
 
@@ -34,12 +36,10 @@ const LogIn = () => {
         e.preventDefault();
         const email = eamilRef.current.value;
         const password = passwordRef.current.value;
-        // console.log(email, password);
         signInWithEmailAndPassword(email, password);
     }
-    let sendingEmail;
-    if (sending) {
-        sendingEmail = <p>Sending...</p>;
+    if (sending || loading) {
+        return <Loading></Loading>;
     }
 
     const resetPassword = async () => {
@@ -66,12 +66,12 @@ const LogIn = () => {
                         {/* <label htmlFor="password">Password</label> */}
                         <input ref={passwordRef} type="password" name="password" id="" required placeholder='Give your Password' />
                     </div>
-                    {sendingEmail}
                     <p style={{ color: 'red' }}>{error?.message}</p>
                     <input className='form-submit' type="submit" value="Log in" />
                 </form>
-                <p>New in SunSet? <Link className='form-link' to='/signup'>Create An Account</Link></p>
-                <p>forget Password? <Button variant="link" className='form-link' onClick={resetPassword}>Reset Your Password</Button></p>
+                <p>New in SunSet? <Link className='form-link' to='/signup'>Please Sign Up</Link></p>
+                <p>New in SunSet? <Link className='form-link' to='/register'>Please Register</Link></p>
+                <p>forget Password? <Button variant="link" className='text-decoration-none' style={{ color: 'teal' }} onClick={resetPassword}>Reset Your Password</Button></p>
                 <ToastContainer />
 
                 <SocialLogIn></SocialLogIn>
