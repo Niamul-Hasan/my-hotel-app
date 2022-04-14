@@ -4,6 +4,7 @@ import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import RoomDetails from './Components/Home/RoomDetails/RoomDetails';
 import LogIn from './Components/LogIn/LogIn';
+import RequireAuth from './Components/LogIn/RequireAuth/RequireAuth';
 import SignUp from './Components/LogIn/SignUp/SignUp';
 
 function App() {
@@ -12,7 +13,11 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/booking" element={<Booking />}></Route>
+        <Route path="/booking" element={
+          <RequireAuth>
+            <Booking />
+          </RequireAuth>
+        }></Route>
         <Route path="/room/:roomId" element={<RoomDetails />}></Route>
         <Route path="/login" element={<LogIn />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
