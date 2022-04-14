@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import "./LogIn.css"
+import SocialLogIn from './SocialLogIn/SocialLogIn';
 
 const LogIn = () => {
 
@@ -16,6 +17,7 @@ const LogIn = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     const from = location.state?.from?.pathname || "/";
 
@@ -32,6 +34,16 @@ const LogIn = () => {
         // console.log(email, password);
         signInWithEmailAndPassword(email, password);
     }
+    let sendingEmail;
+    if (sending) {
+        sendingEmail = <p>Sending...</p>;
+    }
+
+    const resetPassword = async () => {
+        const email = eamilRef.current.value;
+        await sendPasswordResetEmail(email);
+        alert('Sent email');
+    }
     return (
         <div className="form-container">
             <div>
@@ -45,10 +57,14 @@ const LogIn = () => {
                         {/* <label htmlFor="password">Password</label> */}
                         <input ref={passwordRef} type="password" name="password" id="" required placeholder='Give your Password' />
                     </div>
+                    {sendingEmail}
                     <p style={{ color: 'red' }}>{error?.message}</p>
                     <input className='form-submit' type="submit" value="Log in" />
                 </form>
                 <p>New in SunSet? <Link className='form-link' to='/signup'>Create An Account</Link></p>
+                <p>forget Password? <Link className='form-link' to='/signup' onClick={resetPassword}>Reset Your Password</Link></p>
+
+                <SocialLogIn></SocialLogIn>
             </div>
         </div>
     );

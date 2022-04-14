@@ -3,6 +3,8 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "./SignUp.css";
 import auth from '../../../firebase.init';
+import { Button } from 'react-bootstrap';
+import SocialLogIn from '../SocialLogIn/SocialLogIn';
 
 
 
@@ -33,9 +35,10 @@ const SignUp = () => {
                 <input type="text" name="name" placeholder='Enter Your Name' />
                 <input type="email" name="email" placeholder='Enter Email' id="" required />
                 <input type="password" name="password" placeholder='Enter Password' id="" required />
-                <input className='sign-up-btn' type="submit" value="Sign Up" />
+                <Button className='btn btn-primary w-50 d-block mx-auto fs-5 mb-2'>Sign Up</Button>
             </form>
             <p>Already have an account? <Link className='form-link' to='/login'>Log in</Link></p>
+            <SocialLogIn></SocialLogIn>
         </div>
     );
 };
