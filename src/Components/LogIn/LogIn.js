@@ -69,7 +69,6 @@ const LogIn = () => {
                     <p style={{ color: 'red' }}>{error?.message}</p>
                     <input className='form-submit' type="submit" value="Log in" />
                 </form>
-                <p>New in SunSet? <Link className='form-link' to='/signup'>Please Sign Up</Link></p>
                 <p>New in SunSet? <Link className='form-link' to='/register'>Please Register</Link></p>
                 <p>forget Password? <Button variant="link" className='text-decoration-none' style={{ color: 'teal' }} onClick={resetPassword}>Reset Your Password</Button></p>
                 <ToastContainer />
